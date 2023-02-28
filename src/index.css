@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Tilt+Prism&display=swap');
+
+* {
+	margin: 0;
+	padding: 0.25rem;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: rgb(242, 242, 242);
+	color: rgb(42, 42, 42);
+	font-family: 'Barlow', sans-serif;
+}
+
+.offscreen {
+    position: absolute;
+    left: -10000px;
+}
+
+.main {
+	display: flex;
+	justify-content: space-between;
+}
+
+.header__title {
+	font-family: 'Tilt Prism', cursive;
+	font-weight: normal;
+	font-size: 24px;
+}
