@@ -3,7 +3,7 @@ const Header = () => {
 	const content = (
 		<header className="header">
 			<div className="header__title">
-                <h1>Dream Job Finder</h1>
+                <h1>dream job finder</h1>
             </div>
 		</header>
 	)

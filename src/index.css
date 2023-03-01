@@ -1,14 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow&family=Tilt+Prism&display=swap');
 
+:root {
+	--main-dark: rgb(42, 42, 42);
+	--main-bg: rgba(242, 242, 242);
+	--grey-light: rgba(42, 42, 42, 0.136);
+	--grey-strong: rgba(42, 42, 42, 0.402);
+	--accent-color: rgb(255, 192, 203);
+	--accent-color-light: rgba(255, 192, 203, 0.351);
+	--hard-color: rgb(39, 39, 165);
+	--medium-color: orange;
+	--easy-color: green;
+  }  
+
 * {
 	margin: 0;
 	padding: 0.25rem;
 	box-sizing: border-box;
 }
 
+/* React root div */
+#root {
+	min-height: 100vh;
+}
+
+
 body {
-	background-color: rgb(242, 242, 242);
-	color: rgb(42, 42, 42);
+	background-color: var(--main-bg);
+	color: var(--main-dark);
 	font-family: 'Barlow', sans-serif;
 }
 
@@ -17,13 +35,116 @@ body {
     left: -10000px;
 }
 
+.subtitle {
+	font-weight: 700;
+	font-size: 20px;
+	color: var(--accent-color);
+}
+
+.text {
+	font-size: 14px;
+}
+
+.bg-white{
+	background-color: white;
+}
+
 .main {
 	display: flex;
 	justify-content: space-between;
+	flex-flow: row wrap;
 }
+
+/* header */
 
 .header__title {
 	font-family: 'Tilt Prism', cursive;
 	font-weight: normal;
 	font-size: 24px;
+	text-align: center;
 }
+
+/* footer */
+
+/* .footer {
+	position: absolute;
+	bottom: 10px;
+} */
+
+/* activities */
+
+.activities__tag {
+	color: var(--grey-strong);
+}
+
+.activities__list {
+	max-width: 360px;
+	border: 3px solid var(--main-dark);
+}
+
+.activities__list[data-tag="hard"] .activities__name:hover {
+	color:  var(--hard-color);
+}
+
+.activities__list[data-tag="easy"] .activities__name:hover {
+	color:  green;
+}
+
+.activities__list[data-tag="medium"] .activities__name:hover {
+	color: orange;
+}
+
+.activities__list .activities__list-item:active {
+	background-color: var(--grey-light);
+}
+
+.activities__list-item:hover {
+	cursor: pointer;
+}
+
+.activities__name:hover {
+	font-weight: 700;
+}
+
+.activities__list-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	list-style: none;
+	border-top: 3px dashed var(--grey-light);
+}
+
+.activities__list-item:first-child {
+	border-top: none;
+}
+
+.activities__name {
+	font-size: 18px;
+}
+
+/* completed */
+
+.completed__list {
+	max-width: 300px;
+}
+
+.completed__list-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0;
+}
+
+/* inspiration */
+
+.inspiration {
+	display: block;
+	position: absolute;
+	max-width: 200px;
+	bottom: 20px;
+	right: 20px;
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+/* 	box-shadow: rgba(240, 46, 170, 0.07) 0px 1px 2px, rgba(240, 46, 170, 0.07) 0px 2px 4px, rgba(240, 46, 170, 0.07) 0px 4px 8px, rgba(240, 46, 170, 0.07) 0px 8px 16px, rgba(240, 46, 170, 0.07) 0px 16px 32px, rgba(240, 46, 170, 0.07) 0px 32px 64px; */
+}
+

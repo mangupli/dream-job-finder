@@ -1,32 +1,35 @@
 import { ReactElement } from 'react';
 import useActivities from '../hooks/useActivities'
+import ActivitiesBlock from './ActivitiesBlock';
+import useCompletedList from '../hooks/useCompletedList';
 
 const Activities = () => {
 
-	const { activities } = useActivities();
+	const { filterAndSortActivities, tags } = useActivities()
+	const { dispatch, REDUCER_ACTIONS, completed } = useCompletedList()
+
+	const activities = filterAndSortActivities()
 
 	let contentPage: ReactElement | ReactElement[] = <p>Loading...</p>
 
 	if (activities?.length) {
 
-		const listItems = activities.map((activity, index) => {
-			return (
-				<li key={index}>
-					<h3>{activity.name}</h3>
-					<p>{activity.weight}</p>
-				</li>
-			)
+		contentPage = Object.keys(tags).map(tag => {
+			return <ActivitiesBlock
+						key={tag}
+						tag={tag}
+						getActivities={filterAndSortActivities}
+						dispatch={dispatch}
+						REDUCER_ACTIONS={REDUCER_ACTIONS}
+					/>
 		})
 
-		contentPage = (
-			<ul className='activities__list'>
-				{listItems}
-			</ul>
-		)
 	}
 
 	const content = (
 		<section className="activities">
+			<h2 className='subtitle'>activities</h2>
+{/* 			<p className='text bg-white'>add to the list what you have done today</p> */}
 			{contentPage}
 		</section>
 	)

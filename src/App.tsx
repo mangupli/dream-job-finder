@@ -6,21 +6,23 @@ import Activities from "./components/Activities"
 import ProgressBar from "./components/ProgressBar"
 import Calendar from "./components/Calendar"
 import InpirationQuote from "./components/InpirationQuote"
+import CompletedList from "./components/CompletedList"
 
 function App() {
 
 	return (
-		<div className="App">
+		<>
 			<Header />
 			<main className="main">
 				<Activities />
+				<CompletedList />
 				<ProgressBar />
 				<Calendar />
 			</main>
 			<InpirationQuote />			
 			<Footer />
 
-		</div>
+		</>
 
 	)
 }
