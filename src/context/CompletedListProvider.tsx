@@ -130,7 +130,7 @@ const useCompletedListContext = (initCompletedListState: CompletedListStateType)
     }, 0)
 
     const totalWeight: number = state.completed.reduce(( prevValue, activity ) => {
-        return prevValue + activity.weight
+        return prevValue + (activity.weight * activity.qty)
     }, 0)
 
     

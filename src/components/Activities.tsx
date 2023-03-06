@@ -28,7 +28,7 @@ const Activities = () => {
 
 	const content = (
 		<section className="activities">
-			<h2 className='subtitle'>activities</h2>
+			<h2 className="subtitle activities__subtitle">activities</h2>
 {/* 			<p className='text bg-white'>add to the list what you have done today</p> */}
 			{contentPage}
 		</section>

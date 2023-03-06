@@ -1,38 +1,50 @@
 import useCompletedList from "../hooks/useCompletedList"
 import { CompletedActivityType } from "../context/CompletedListProvider";
+import CompletedListLine from "./CompletedListLine";
 
 const CompletedList = () => {
 
 	const { completed, dispatch, REDUCER_ACTIONS, totalActivities, totalWeight } = useCompletedList();
 
-	const onPlusClick = (activity: CompletedActivityType) => dispatch({ type: REDUCER_ACTIONS.INC, payload: activity})
-	const onMinusClick = (activity: CompletedActivityType) => dispatch({ type: REDUCER_ACTIONS.DEC, payload: activity})
-
-	const listItems= completed.map(act => {
+/* 	const listItems= completed.map(act => {
 		return(
-			<li
+			<CompletedListLine
 				key={act.name}
-				className="completed__list-item"
-			>
-				<button onClick={() => onPlusClick(act)}>+</button>
-				<button onClick={() => onMinusClick(act)}>-</button>
-				<p>{act.name}</p>
-				<p>{`x${act.qty}`}</p>		
-			</li>
+				activity={act}
+				dispatch={dispatch}
+				REDUCER_ACTIONS={REDUCER_ACTIONS}
+			/>			
 		)
-	})
+	}) */
 
 	const renderedList = (
 		<ul className="completed__list">
-			{listItems}
+			{completed.map(act => {
+				return(
+					<CompletedListLine
+						key={act.name}
+						activity={act}
+						dispatch={dispatch}
+						REDUCER_ACTIONS={REDUCER_ACTIONS}
+					/>			
+				)
+			})}
 		</ul>
+	)
+
+	const totalInfo = (
+		<div className="">
+			<p>{`Total progress: ${totalWeight}`}</p>
+			<p>{`Total activities: ${totalActivities}`}</p>
+		</div>
 	)
 
 	const content = (
 		<section className="completed">
-			<h2 className='subtitle'>completed today</h2>
+			<h2 className='subtitle'>what have you done today?</h2>
 {/* 			<p className='text bg-white'>add to the list what you have done today</p> */}
 			{renderedList}
+			{totalInfo}
 		</section>
 	)
 
